@@ -1,2 +1,2 @@
 # AI-Project
-Reinforcement Learning in Super-Mario
+## Reinforcement Learning in Super-Mario
