@@ -6,7 +6,7 @@ from Wrappers import make_env
 warnings.filterwarnings("ignore")
 
 if __name__ == '__main__':
-    env = make_env('SuperMarioBros-1-1-v1')
+    env = make_env('SuperMarioBros-1-1-v0')
     state_dim = env.observation_space.shape
     action_dim = env.action_space.n
     save_directory = "mario_dqn_model"

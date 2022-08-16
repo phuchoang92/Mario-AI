@@ -8,6 +8,9 @@ from collections import deque
 import matplotlib.pyplot as plt
 from torchsummary import summary
 from Model import DuelingDDQN, DQN
+from gym.wrappers.monitoring.video_recorder import VideoRecorder
+
+before_training = "before_training.mp4"
 
 
 class DQNAgent:
@@ -100,6 +103,7 @@ class DQNAgent:
         training_time = 0
         # Time to save model
         checkpoint_period = checkpoint_period
+        video = VideoRecorder(env, before_training)
 
         self.update_target()
 
@@ -113,7 +117,8 @@ class DQNAgent:
 
             while True:
                 env.render()
-                # time.sleep(0.03)
+                video.capture_frame()
+                time.sleep(0.01)
                 state, reward, is_terminal = self.act(state, env)
                 self.experience_replay(model_name)
 
@@ -132,12 +137,14 @@ class DQNAgent:
             total_step = int(np.sum(self.episode_timestep))
             mean_100_reward = np.mean(self.episode_reward[-100:])
             self.result[episode - 1] = total_step, mean_100_reward, training_time
-            if episode % time_save_model == 0:
-                self.plot(self.result, episode)
-                self.save_checkpoint(episode)
+            #if episode % time_save_model == 0:
+                #self.plot(self.result, episode)
+                #self.save_checkpoint(episode)
 
         self.memory.clear()
         # self.plot(self.result)
+        video.close()
+        env.close()
         return self.result
 
     def evaluate(self, eval_model, eval_env, n_episodes=1):
