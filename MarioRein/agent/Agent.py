@@ -118,7 +118,7 @@ class DQNAgent:
             while True:
                 env.render()
                 video.capture_frame()
-                time.sleep(0.01)
+                #time.sleep(0.01)
                 state, reward, is_terminal = self.act(state, env)
                 self.experience_replay(model_name)
 

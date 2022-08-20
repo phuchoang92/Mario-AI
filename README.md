@@ -1,8 +1,10 @@
-# AI-Project
-## Reinforcement Learning in Super-Mario
+# Reinforcement Learning in Super-Mario
 
+## Description
 
-https://user-images.githubusercontent.com/31571856/184900207-c9b10086-b233-406f-a2b3-4dbe371205d7.mp4
+<p align="center">
+  <img src="MarioRein/agent/before_training.mp4" width="200" alt="video">
+</p>
 
 ## Algorithms
 
