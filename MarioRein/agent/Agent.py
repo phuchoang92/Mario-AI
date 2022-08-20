@@ -10,7 +10,7 @@ from torchsummary import summary
 from Model import DuelingDDQN, DQN
 from gym.wrappers.monitoring.video_recorder import VideoRecorder
 
-before_training = "before_training.mp4"
+demo_video = "demo.mp4"
 
 
 class DQNAgent:
@@ -103,7 +103,7 @@ class DQNAgent:
         training_time = 0
         # Time to save model
         checkpoint_period = checkpoint_period
-        video = VideoRecorder(env, before_training)
+        video = VideoRecorder(env, demo_video)
 
         self.update_target()
 
